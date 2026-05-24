@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: linear-gradient(#d9c6f2, #f7d6e0);
+  color: #ffffff;
+  text-align: center;
+  font-family: "Happy Monkey", system-ui;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  text-shadow: 0px 0px 1px black;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+}
+
+h3 {
+  font-size: clamp(0.95rem, 3.8vw, 1.17rem);
+}
+
+h4 {
+  font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+}
+
+#profile-row {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* aligns vertically */
+  gap: 12px; /* space between the two photos */
+  flex-wrap: wrap; /* drops to a new line on very narrow screens */
+}
+
+.profile {
+  width: clamp(120px, 35vw, 150px);
+  height: clamp(120px, 35vw, 150px);
+  border: 6px solid #efb0c9;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#age {
+  background: #efb0c9;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin: 16px 0 10px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+#date {
+  background: #efb0c9;
+  margin-top: 0;
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gift-section {
+  margin-top: 30px;
+}
+
+.gift-title {
+  margin-bottom: 10px;
+  padding: 0 8px;
+}
+
+.hover-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.gift-cover {
+  width: min(400px, 100%);
+  aspect-ratio: 1 / 1;
+  max-width: 400px;
+  border: 6px solid white;
+  border-radius: 10px;
+  margin: 20px auto 40px;
+  background-image: url("./images/gift-cover.jpg");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gift-cover:active {
+  transform: scale(0.98);
+}
+
+.gift-cover:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Tap-to-reveal (works on every device, including touch) */
+#gift-together.revealed {
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2xtZ244b2dhdmpsbXMyMjNpdDVuNGU4ZjFzaGdoMng0ejRjNmQyYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/FVZnKuHM4FJxzq8wmm/giphy.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+}
+
+#gift-support.revealed {
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExczA0OWY0ZzJxMmptaGZpZ2R6MXZnM3l6eHBpdjltbGRnMW5tMmFqMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cMhPpDTQnk0eZDQiZk/giphy.gif");
+}
+
+#gift-special.revealed {
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjFlbmZsbTM1NHA2YXM5OXBvZWd2bnZ5N2JxbWZvdHZ4dTR3dDVkZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0ixAZaU8Gp8R5TdRQT/giphy.gif");
+}
+
+#gift-beautiful.revealed {
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExazg4azZ4ZGllbTI5cnp1bm1zaG0weGgyeXJmNWdzYnNpMHliZ3lyZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oKIPjzfv0sI2p7fDW/giphy.gif");
+}
+
+#gift-cover-strong.revealed {
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjFlbmZsbTM1NHA2YXM5OXBvZWd2bnZ5N2JxbWZvdHZ4dTR3dDVkZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hZj44bR9FVI3K/giphy.gif");
+}
+
+/* Hover-to-reveal — only on devices that actually support hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  #gift-together:hover {
+    background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2xtZ244b2dhdmpsbXMyMjNpdDVuNGU4ZjFzaGdoMng0ejRjNmQyYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/FVZnKuHM4FJxzq8wmm/giphy.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+  }
+
+  #gift-support:hover {
+    background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExczA0OWY0ZzJxMmptaGZpZ2R6MXZnM3l6eHBpdjltbGRnMW5tMmFqMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cMhPpDTQnk0eZDQiZk/giphy.gif");
+  }
+
+  #gift-special:hover {
+    background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjFlbmZsbTM1NHA2YXM5OXBvZWd2bnZ5N2JxbWZvdHZ4dTR3dDVkZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0ixAZaU8Gp8R5TdRQT/giphy.gif");
+  }
+
+  #gift-beautiful:hover {
+    background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExazg4azZ4ZGllbTI5cnp1bm1zaG0weGgyeXJmNWdzYnNpMHliZ3lyZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oKIPjzfv0sI2p7fDW/giphy.gif");
+  }
+
+  #gift-cover-strong:hover {
+    background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjFlbmZsbTM1NHA2YXM5OXBvZWd2bnZ5N2JxbWZvdHZ4dTR3dDVkZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hZj44bR9FVI3K/giphy.gif");
+  }
+}
+
+#gift-cover-strong {
+  aspect-ratio: 4 / 5;
+}
+
+#footer {
+  width: min(400px, 100%);
+  margin: 40px auto 20px;
+  padding: 0 8px;
+  font-style: italic;
+  color: black;
+  font-size: clamp(0.95rem, 3.6vw, 1rem);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+#play-btn,
+#pause-btn {
+  border: 3px solid #efb0c9;
+  border-radius: 10px;
+  padding: 10px 18px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  min-height: 44px;
+  min-width: 88px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+#play-btn:active,
+#pause-btn:active {
+  transform: scale(0.97);
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+  body {
+    padding: 12px;
+  }
+
+  .gift-cover {
+    margin: 16px auto 28px;
+  }
+}

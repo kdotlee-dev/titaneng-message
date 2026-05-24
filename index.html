@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#efb0c9" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Birthday GIFt</title>
+  </head>
+  <body>
+    <div class="audio-controls">
+      <button id="play-btn" type="button" aria-label="Play music">
+        ▶ Play
+      </button>
+      <button id="pause-btn" type="button" aria-label="Pause music">
+        ❚❚ Pause
+      </button>
+    </div>
+
+    <div id="header">
+      <h1>Stay Strong, Tita Neng 💖</h1>
+
+      <div id="profile-row">
+        <img src="./images/first.jpg" class="profile" alt="Tita Neng" />
+        <img src="./images/second.jpg" class="profile" alt="Tita Neng" />
+        <img src="./images/third.jpg" class="profile" alt="Tita Neng" />
+        <img src="./images/fourth.jpg" class="profile" alt="Tita Neng" />
+        <img src="./images/fifth.jpg" class="profile" alt="Tita Neng" />
+      </div>
+
+      <h2 id="age">You are stronger than you think ✨</h2>
+
+      <h4 id="date">Everything will be okay 🙏</h4>
+    </div>
+
+    <div class="gift-section">
+      <h2 class="gift-title">
+        Just a little reminder that you are never alone 💕
+      </h2>
+      <h3 class="hover-title">(Tap or hover over the gifts)</h3>
+      <div
+        class="gift-cover"
+        id="gift-together"
+        role="button"
+        tabindex="0"
+        aria-label="Reveal gift"
+      ></div>
+
+      <h2 class="gift-title">
+        No matter what happens, we will always be here for you 🤍
+      </h2>
+      <div
+        class="gift-cover"
+        id="gift-support"
+        role="button"
+        tabindex="0"
+        aria-label="Reveal gift"
+      ></div>
+
+      <h2 class="gift-title">Something that makes you special to us 👇</h2>
+      <div
+        class="gift-cover"
+        id="gift-special"
+        role="button"
+        tabindex="0"
+        aria-label="Reveal gift"
+      ></div>
+
+      <h2 class="gift-title">
+        Your strength, courage, and beautiful spirit 💪
+      </h2>
+      <div
+        class="gift-cover"
+        id="gift-beautiful"
+        role="button"
+        tabindex="0"
+        aria-label="Reveal gift"
+      ></div>
+
+      <h2 class="gift-title">
+        Please keep being happy, hopeful, and strong 🌸
+      </h2>
+      <div
+        class="gift-cover"
+        id="gift-cover-strong"
+        role="button"
+        tabindex="0"
+        aria-label="Reveal gift"
+      ></div>
+    </div>
+
+    <p id="footer">
+      Tita Neng, I just want you to remember that no matter what happens, please
+      don’t worry too much. We will always be here beside you, supporting and
+      loving you. Keep smiling, stay strong, and believe that everything will go
+      well 💞
+    </p>
+
+    <audio
+      id="background-sound"
+      src="./audio/In Christ Alone (My Hope Is Found) - Adrienne Liesching  LYRIC VIDEO.mp3"
+      loop
+      preload="none"
+    ></audio>
+
+    <script>
+      const backgroundSound = document.getElementById("background-sound");
+      const play = document.getElementById("play-btn");
+      const pause = document.getElementById("pause-btn");
+
+      play.addEventListener("click", () => backgroundSound.play());
+      pause.addEventListener("click", () => backgroundSound.pause());
+
+      // Tap-to-reveal for touch devices (since :hover doesn't work on phones).
+      // On desktop, CSS :hover still handles the reveal.
+      const gifts = document.querySelectorAll(".gift-cover");
+      gifts.forEach((gift) => {
+        const toggle = () => gift.classList.toggle("revealed");
+        gift.addEventListener("click", toggle);
+        gift.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
